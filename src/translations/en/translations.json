@@ -1,0 +1,16 @@
+{
+    "Name": "Name",
+    "Password":"Password",
+    "Email": "Email",
+    "EmailPlaceholder":"Enter Email",
+    "PasswordPlaceholder": "Enter Password",
+    "NamePlaceholder": "Enter Name",
+    "Login":  "Login",
+    "Register":"Register",
+    "Required":"this field is required",
+    "MinLengthMsg":"you need to add more than 6 character",
+    "InvalidEmail":"Invalid Email",
+    "Logout":"Logout",
+    "profile":"profile",
+    "Home":"Home"
+}

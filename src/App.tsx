@@ -1,25 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { FC, Suspense, useEffect, useState } from 'react';
+import ErrorBoundary from './components/errorboundry';
+import { BrowserRouter } from 'react-router-dom';
+import APPRoutes from './routes';
+import Loading from './components/loading';
+import Header from './components/header';
+import Footer from './components/footer';
+import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
+import { useTranslation } from "react-i18next";
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import {Helmet}  from "react-helmet";    
+/*    <Helmet>  
+        <html lang={lang} />  
 
-function App() {
+      </Helmet> */
+const App:FC = () => {
+  const[lang,setLanguage] = useState(localStorage.getItem("Lang")||"en");
+  const [t, i18n] = useTranslation();
+  useEffect(()=>{
+    const lang = localStorage.getItem("Lang");
+    i18n.changeLanguage(`${lang}`) ;
+    document.documentElement.lang =`${lang}`;
+    if(lang ==="ar") {document.body.style.direction = "rtl";}
+    else{document.body.style.direction = "ltr";}
+
+  
+  },[localStorage.getItem("Lang")])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+  
+  
+    <ErrorBoundary>
+        <BrowserRouter>
+          <Header/>
+          <pre>{process.env.REACT_APP_SECRET_NAME}</pre>
+          <Suspense fallback={<Loading/>}>
+            <div className='container'>
+            <APPRoutes/>
+            </div>
+         </Suspense>
+         <Footer/>
+        </BrowserRouter>
+    </ErrorBoundary>
+    </>
+   
   );
 }
 

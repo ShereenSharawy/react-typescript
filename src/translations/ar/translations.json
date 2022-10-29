@@ -1,0 +1,16 @@
+{
+    "Name": "الاسم",
+    "Password": "الباسورد",
+    "Email": "الايمبل",
+    "EmailPlaceholder": "ادخل الايميل ",
+    "PasswordPlaceholder": "ادخل الباسورد ",
+    "NamePlaceholder": "ادخل الاسم ",
+    "Login":  "الدخول",
+    "Register":"تسجيل ",
+    "Required":"هذا الحقل مطلوب",
+    "MinLengthMsg":"ادخل عدد حروف لايقل عن سته",
+    "InvalidEmail":"ادخل ايميل صحيح",
+    "Logout" : "خروج",
+    "profile":"الصفحة الشخصية",
+    "Home":"الصفحة الرئيسية"
+}
